@@ -16,10 +16,15 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(path) {
+if (path === ""){
+  return ""
 }
-
+let pathAdress = path.split("/");
+return pathAdress[pathAdress.length -1]
+}
+let path = "C:/Users/johnsmith/Music/Beethoven_5.mp3"
+console.log(dosyaAdiniBul(path))
 /*
   GÖREV 2
   - Input:  Bir sayı arrayini parametre olarak alacak bir fonksiyon oluştur.
@@ -38,10 +43,16 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
-}
+function ortalamaBul(sayilar) {
+  if(sayilar.length === 0) {
+    return null
+  }
+  const toplam =sayilar.reduce((total,item) =>{ return total+item},0)
+ const ortalama = toplam / sayilar.length 
+ return ortalama 
 
+}
+console.log( ortalamaBul([""]))
 /*
   GÖREV 3
   - Input:  Bir sayı arrayini ve ortalama bulmaya yarayacak bir fonksiyonu parametre olarak alacak bir fonksiyon oluştur.
@@ -62,8 +73,10 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(sayilar,fonksiyon) {
+  if(sayilar.length == 0 ) return null ;
+  const newArray = sayilar.filter((index) => {return index >= fonksiyon(sayilar)});
+  return newArray
 }
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
